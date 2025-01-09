@@ -1,4 +1,6 @@
-export const paginatedUsersMock = {
+import { PaginationInterface } from "@/interface/pagination";
+
+export const paginatedUsersMock: PaginationInterface = {
   currentPage: 1,
   totalPages: 3,
   pageSize: 5,
@@ -36,7 +38,7 @@ export const paginatedUsersMock = {
     },
   ],
 };
-export const paginatedUsersMockPage2 = {
+export const paginatedUsersMockPage2: PaginationInterface = {
   currentPage: 2,
   totalPages: 3,
   pageSize: 5,
@@ -74,7 +76,7 @@ export const paginatedUsersMockPage2 = {
     },
   ],
 };
-export const paginatedUsersMockPage3 = {
+export const paginatedUsersMockPage3: PaginationInterface = {
   currentPage: 3,
   totalPages: 3,
   pageSize: 5,
@@ -111,4 +113,10 @@ export const paginatedUsersMockPage3 = {
       gender: "Female",
     },
   ],
+};
+
+export const paginateUsersMock = {
+  1: paginatedUsersMock,
+  2: paginatedUsersMockPage2,
+  3: paginatedUsersMockPage3,
 };

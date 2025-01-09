@@ -7,7 +7,7 @@ export const Layout = ({ children }: LaouyProps) => {
   return (
     <div className="flex h-full w-full">
       <Navbar />
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 px-[3.125rem] py-[2.25rem]">{children}</main>
     </div>
   );
 };
