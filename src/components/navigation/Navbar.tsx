@@ -2,8 +2,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { UserInfo } from "./NavbarUser";
 import { NavigationItem } from "./NavitagionItem";
 const routes = [
-  { link: "/user", text: "Usuários", iconSrc: "/navbar/users-icon.svg" },
-  { link: "/test", text: "Test", iconSrc: "/navbar/users-icon.svg" },
+  { link: "/user/list", text: "Usuários", iconSrc: "/navbar/users-icon.svg" },
 ];
 
 export const Navbar = () => {

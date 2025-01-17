@@ -1,3 +1,5 @@
+import { NavLink } from "react-router";
+
 interface NavigationItemProps {
   text: string;
   link: string;
@@ -11,9 +13,9 @@ export const NavigationItem = ({
   return (
     <div className="w-full flex gap-2 py-3 px-4">
       <img src={iconSrc} />
-      <a href={link} className="text-white font-vega-poppins text-xs">
+      <NavLink to={link} className="text-white font-vega-poppins text-xs">
         {text}
-      </a>
+      </NavLink>
     </div>
   );
 };

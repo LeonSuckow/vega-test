@@ -1,3 +1,4 @@
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { Navbar } from "../components/navigation/Navbar";
 
 interface LaouyProps {
@@ -7,7 +8,9 @@ export const Layout = ({ children }: LaouyProps) => {
   return (
     <div className="flex h-full w-full">
       <Navbar />
-      <main className="flex-1 px-[3.125rem] py-[2.25rem]">{children}</main>
+      <ScrollArea className="flex-1 px-[3.125rem] py-[2.25rem] max-h-full h-full">
+        {children}
+      </ScrollArea>
     </div>
   );
 };

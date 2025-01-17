@@ -1,12 +1,13 @@
 import { usePagination } from "@/components/pagination/hook/usePagination";
-import { paginatedUsersMock } from "@/mock/user";
+import { usersMock } from "@/mock/user";
 import { useEffect, useState } from "react";
 
 export const useUserPage = () => {
-  const { pagination, handleUpdatePagination } =
-    usePagination(paginatedUsersMock);
+  const { pagination, handleUpdatePagination } = usePagination({
+    data: usersMock,
+  });
 
-  const [users, setUsers] = useState(paginatedUsersMock.data);
+  const [users, setUsers] = useState(pagination.data);
 
   useEffect(() => {
     setUsers(pagination.data);

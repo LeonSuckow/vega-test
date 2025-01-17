@@ -18,6 +18,7 @@ export type LanguageType = {
 };
 
 export interface User {
+  id: string;
   username: string;
   email: string;
   language: string;
@@ -28,7 +29,6 @@ export interface UserListProps {
   users: User[];
 }
 
-export interface UserPageProps {}
 export interface UserPageData {
   pagination: PaginationInterface;
   users: any[];

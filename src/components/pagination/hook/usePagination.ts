@@ -1,44 +1,55 @@
-import { PaginationInterface, UsePaginationData } from "@/interface/pagination";
-import { paginateUsersMock } from "@/mock/user";
-import { useCallback, useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import {
+  PaginationInterface,
+  UsePaginationData,
+  UsePaginationProps,
+} from "@/interface/pagination";
+import { usersMock } from "@/mock/user";
+import { useCallback, useEffect, useState } from "react";
+
+function getUserPaginatedData(data: any[], page: number, pageSize: number) {
+  return data.slice((page - 1) * pageSize, page * pageSize);
+}
 
 export const usePagination = ({
   data = [],
-  currentPage,
-  pageSize,
-  totalItems,
-  totalPages,
-}: PaginationInterface): UsePaginationData => {
+}: UsePaginationProps): UsePaginationData => {
   const [pagination, setPagination] = useState<PaginationInterface>({
-    currentPage: currentPage,
-    pageSize: pageSize,
-    totalItems: totalItems,
-    totalPages: totalPages,
-    hasNext: currentPage < totalPages,
+    currentPage: 1,
+    pageSize: 10,
+    totalItems: 0,
+    totalPages: 1,
+    hasNext: false,
     data: data,
   });
 
   const handleUpdatePagination = useCallback(
     (newPagination: PaginationInterface) => {
-      // const totalItems = Number(data.length);
-      // const totalPages = Math.ceil(data.length / newPagination.pageSize);
+      const totalItems = Number(data.length);
+      const totalPages = Math.ceil(data.length / newPagination.pageSize);
 
-      const newData =
-        paginateUsersMock[
-          newPagination.currentPage as keyof typeof paginateUsersMock
-        ];
+      const newData = getUserPaginatedData(
+        usersMock,
+        newPagination.currentPage,
+        newPagination.pageSize
+      );
+
       setPagination({
         ...newPagination,
-        hasNext: newData.currentPage < newData.totalPages,
-        currentPage: newData.currentPage,
-        pageSize: newData.pageSize,
-        totalItems: newData.totalItems,
-        totalPages: newData.totalPages,
-        data: newData.data,
+        hasNext: newPagination.currentPage < totalPages,
+        currentPage: newPagination.currentPage,
+        pageSize: newPagination.pageSize,
+        totalItems: totalItems,
+        totalPages: totalPages,
+        data: newData,
       });
     },
     []
   );
+
+  useEffect(() => {
+    handleUpdatePagination(pagination);
+  }, []);
 
   return {
     handleUpdatePagination,

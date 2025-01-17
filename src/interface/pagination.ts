@@ -14,7 +14,11 @@ export interface PaginationInterface {
   data?: any[];
 }
 
-export interface PaginationProps {
+export interface UsePaginationProps {
+  data?: any[];
+}
+
+export interface PaginationComponentProps {
   handleUpdatePagination: (newPagination: PaginationInterface) => void;
   pagination: PaginationInterface;
 }

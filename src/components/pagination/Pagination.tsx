@@ -4,7 +4,7 @@ import {
   PaginationLink,
   Pagination as PaginationUI,
 } from "@/components/ui/pagination";
-import { PaginationProps } from "@/interface/pagination";
+import { PaginationComponentProps } from "@/interface/pagination";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Button } from "../ui/button";
@@ -12,7 +12,7 @@ import { Button } from "../ui/button";
 export const Pagination = ({
   handleUpdatePagination,
   pagination,
-}: PaginationProps) => {
+}: PaginationComponentProps) => {
   const [inputGoToPage, setInputGoToPage] = useState(1);
   return (
     <div className="flex justify-between">
