@@ -1,4 +1,7 @@
+import { toast } from "sonner";
+
 import { usersMock } from "@/mock/user";
+import { isUserRole } from "@/utils/user";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -36,12 +39,14 @@ export const useUserDetails = () => {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
+    toast.success("User updated");
     console.log(values);
   }
 
   useEffect(() => {
-    const userRole = localStorage.getItem("vega-user-role");
-    if (userRole === "admin") setCanEditDetails(true);
+    if (isUserRole("admin")) {
+      setCanEditDetails(true);
+    }
 
     const user = usersMock.find((user) => user.id === userId);
     if (user) form.reset(user);

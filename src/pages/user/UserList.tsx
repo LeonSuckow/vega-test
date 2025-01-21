@@ -25,7 +25,9 @@ export const UserList = () => {
         <>
           <div className="flex justify-between">
             <div className="flex gap-1 items-center justify-center">
-              <span className="text-base font-bold">20</span>
+              <span className="text-base font-bold">
+                {pagination.totalItems}
+              </span>
               <span>usuários cadastrados</span>
             </div>
             <div className="flex gap-4 items-center">
