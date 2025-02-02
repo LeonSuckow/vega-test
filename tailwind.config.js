@@ -6,20 +6,16 @@ export default {
     extend: {
       colors: {
         "vega-yellow-800": "#F28E00",
-
         "vega-blue-400": "#8A97B1",
         "vega-blue-800": "#2E406B",
         "vega-blue-900": "#27365B",
         "vega-blue-300": "#E3E7FF",
-
         "vega-gray-100": "#FCFCFA",
         "vega-gray-300": "#D6D8E1",
         "vega-gray-400": "#D9D9D9",
         "vega-gray-600": "#6D7882",
         "vega-gray-800": "#404040",
-
         "vega-green-800": "#008040",
-
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -59,6 +55,16 @@ export default {
           3: "hsl(var(--chart-3))",
           4: "hsl(var(--chart-4))",
           5: "hsl(var(--chart-5))",
+        },
+        sidebar: {
+          DEFAULT: "#2E406B",
+          foreground: "#fff",
+          primary: "hsl(var(--sidebar-primary))",
+          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
+          accent: "hsl(var(--sidebar-accent))",
+          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
+          border: "hsl(var(--sidebar-border))",
+          ring: "hsl(var(--sidebar-ring))",
         },
       },
       fontFamily: {

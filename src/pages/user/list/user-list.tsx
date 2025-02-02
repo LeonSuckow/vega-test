@@ -1,9 +1,9 @@
-import { DataTable } from "../../components/DataTable";
-import { columns } from "./column/UserColumn";
+import { DataTable } from "../../../components/data-table";
+import { columns } from "./config/datatable/user-columns";
 
-import { Pagination } from "@/components/pagination/Pagination";
+import { Pagination } from "@/components/pagination/pagination";
 
-import { Card } from "@/components/Card";
+import { Card } from "@/components/card";
 import {
   Select,
   SelectContent,
@@ -12,13 +12,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useUserPage } from "./hook/useUserPage";
+import { useUserPage } from "./hook/use-user-page";
 
 export const UserList = () => {
   const { users, pagination, handleUpdatePagination } = useUserPage();
   return (
     <>
-      <h1 className="text-2xl font-bold mb-[4.875rem] text-vega-gray-800">
+      <h1 className="text-2xl font-bold mb-[2.5rem] text-vega-gray-800">
         Usuários
       </h1>
       <Card>

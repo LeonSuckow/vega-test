@@ -1,52 +1,6 @@
-import { Layout } from "@/layout/Layout";
-import { UserDetails } from "@/pages/user/UserDetails";
-import { UserList } from "@/pages/user/UserList";
-import { Outlet, Route, Routes } from "react-router";
-
-interface RouterItemProps {
-  path: string;
-  element: JSX.Element;
-  subRoutes?: RouterItemProps[];
-}
-
-const ROUTE_CONFIG: RouterItemProps[] = [
-  {
-    path: "/",
-    element: (
-      <>
-        <Layout>
-          <>
-            <Outlet />
-          </>
-        </Layout>
-      </>
-    ),
-    subRoutes: [
-      {
-        path: "user",
-        element: <Outlet />,
-        subRoutes: [
-          {
-            path: "list",
-            element: (
-              <>
-                <UserList />
-              </>
-            ),
-          },
-          {
-            path: "details/:userId",
-            element: (
-              <>
-                <UserDetails />
-              </>
-            ),
-          },
-        ],
-      },
-    ],
-  },
-];
+import { RouterItemProps } from "@/interface/route";
+import { Route, Routes } from "react-router";
+import { ROUTE_CONFIG } from "./config/route-config";
 
 export const CustomRouter = () => {
   const renderRoutes = (routes: RouterItemProps[]) => {

@@ -1,7 +1,7 @@
 import { toast } from "sonner";
 
+import { useUserContext } from "@/hooks/use-user";
 import { usersMock } from "@/mock/user";
-import { isUserRole } from "@/utils/user";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -10,7 +10,7 @@ import { z } from "zod";
 
 export const useUserDetails = () => {
   const [canEditDetails, setCanEditDetails] = useState(false);
-
+  const { isUserRole } = useUserContext();
   const { userId } = useParams();
 
   const navigate = useNavigate();
@@ -39,12 +39,16 @@ export const useUserDetails = () => {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
+    if (!canEditDetails) {
+      return toast.warning("User without permission");
+    }
+
     toast.success("User updated");
     console.log(values);
   }
 
   useEffect(() => {
-    if (isUserRole("admin")) {
+    if (isUserRole("Admin")) {
       setCanEditDetails(true);
     }
 

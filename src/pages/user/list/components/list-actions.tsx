@@ -5,6 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useUserContext } from "@/hooks/use-user";
 import { User } from "@/interface/user";
 import { MoreHorizontal } from "lucide-react";
 import { useNavigate } from "react-router";
@@ -14,10 +15,10 @@ interface UserListActions {
 }
 
 const useListAction = () => {
-  let canEdit = false;
-  const userRole = localStorage.getItem("vega-user-role");
-  if (userRole === "admin") canEdit = true;
-  const textUserDetails = canEdit ? "Editar" : "Visualizar";
+  const { isUserRole } = useUserContext();
+
+  const textUserDetails = isUserRole("Admin") ? "Editar" : "Visualizar";
+
   const navigate = useNavigate();
 
   return { textUserDetails, navigate };

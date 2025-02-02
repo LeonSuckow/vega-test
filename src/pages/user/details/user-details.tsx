@@ -1,4 +1,4 @@
-import { Card } from "@/components/Card";
+import { Card } from "@/components/card";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { ArrowLeftIcon } from "lucide-react";
-import { useUserDetails } from "./hook/useUserDetails";
+import { useUserDetails } from "./hook/use-user-details";
 
 export const UserDetails = () => {
   const { form, onSubmit, navigate, canEditDetails, titleUserDetails } =
