@@ -2,14 +2,14 @@ export const BREADCRUMB_HISTORY_LIMIT = 3;
 
 export const BREADCRUMB_CONFIG = {
   "/user/list": {
-    name: "Lista de Usuários",
+    name: "Lista de usuários",
     history: [{ name: "Home", url: "/" }],
   },
   "/user/details/:userId": {
     name: "Detalhes do usuário",
     history: [
       { name: "Home", url: "/" },
-      { name: "Lista de Usuários", url: "/user/list" },
+      { name: "Lista de usuários", url: "/user/list" },
     ],
   },
 };
@@ -36,13 +36,11 @@ export const buildBreadcrumbs = (currentPath: string) => {
     BREADCRUMB_CONFIG[resolvedPattern as keyof typeof BREADCRUMB_CONFIG];
 
   if (breadcrumb) {
-    // Limita o histórico conforme a configuração
     const limitedHistory = breadcrumb.history.slice(-BREADCRUMB_HISTORY_LIMIT);
 
-    // Atualiza o histórico, substituindo o último item com o nome da rota atual
     const updatedHistory = [
       ...limitedHistory,
-      { name: breadcrumb.name, url: undefined }, // Último item não precisa de link
+      { name: breadcrumb.name, url: undefined },
     ];
 
     return { ...breadcrumb, history: updatedHistory };

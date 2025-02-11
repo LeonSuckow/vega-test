@@ -5,6 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { GLOBAL_TEXT } from "@/config/pt";
 import { useUserContext } from "@/hooks/use-user";
 import { User } from "@/interface/user";
 import { MoreHorizontal } from "lucide-react";
@@ -15,9 +16,11 @@ interface UserListActions {
 }
 
 const useListAction = () => {
-  const { isUserRole } = useUserContext();
+  const { compareUserProfile } = useUserContext();
 
-  const textUserDetails = isUserRole("Admin") ? "Editar" : "Visualizar";
+  const textUserDetails = compareUserProfile("ADMIN")
+    ? GLOBAL_TEXT.PAGES.USER.LIST.DATATABLE.ACTIONS.EDIT
+    : GLOBAL_TEXT.PAGES.USER.LIST.DATATABLE.ACTIONS.DETAILS;
 
   const navigate = useNavigate();
 
@@ -31,7 +34,6 @@ export const UserListActions = ({ user }: UserListActions) => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="h-8 w-8 p-0">
-          <span className="sr-only">Open menu</span>
           <MoreHorizontal className="h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>

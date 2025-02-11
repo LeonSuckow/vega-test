@@ -15,11 +15,12 @@ import {
 import { useUserPage } from "./hook/use-user-page";
 
 export const UserList = () => {
-  const { users, pagination, handleUpdatePagination } = useUserPage();
+  const { users, pagination, handleUpdatePagination, listTitle } =
+    useUserPage();
   return (
     <>
       <h1 className="text-2xl font-bold mb-[2.5rem] text-vega-gray-800">
-        Usuários
+        {listTitle}
       </h1>
       <Card>
         <>

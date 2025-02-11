@@ -1,29 +1,76 @@
-import { createContext, ReactNode, useContext } from "react";
-import { useNavigate } from "react-router";
+import { GLOBAL_TEXT, replaceText } from "@/config/pt";
+import { Profile } from "@/constants/role";
+import { User } from "@/interface/user";
+import { usersMock } from "@/mock/user";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+import { toast } from "sonner";
 interface UserContextData {
-  isUserRole: (role: string) => boolean;
-  setUserRole: (role: string) => void;
+  compareUserProfile: (role: Profile) => boolean;
+  changeUserProfile: (role: Profile) => void;
+  getUserById: (id?: string) => User | undefined;
+  updateUser: (user: User) => void;
+  userRole: Profile;
 }
 export interface UserProviderProps {
   children: ReactNode;
 }
 
 const UserContext = createContext({} as UserContextData);
+const DEFAULT_PROFILE: Profile = "PUBLIC";
 
 export const UserProvider = ({ children }: UserProviderProps) => {
-  const navigate = useNavigate();
-  const isUserRole = (role: string) => {
-    const userRole = localStorage.getItem("vega-user-role");
+  const [userRole, setUserRole] = useState<Profile>(DEFAULT_PROFILE);
+
+  const getUserById = (id?: string) => usersMock.find((user) => user.id === id);
+
+  const updateUser = (user: User) => {
+    const index = usersMock.findIndex((u) => u.id === user.id);
+    usersMock[index] = user;
+
+    toast.success(
+      replaceText(
+        { recurso: GLOBAL_TEXT.RESOURCE.USER },
+        GLOBAL_TEXT.TOAST.UPDATED
+      )
+    );
+  };
+
+  const compareUserProfile = (role: Profile) => {
     return userRole === role;
   };
 
-  const setUserRole = (role: string) => {
+  const changeUserProfile = (role: Profile) => {
     localStorage.setItem("vega-user-role", role);
-    navigate(0);
+    setUserRole(role);
+    toast.success(
+      replaceText(
+        { recurso: GLOBAL_TEXT.RESOURCE.PROFILE },
+        GLOBAL_TEXT.TOAST.CHANGED
+      )
+    );
   };
 
+  useEffect(() => {
+    const userRole = localStorage.getItem("vega-user-role") ?? DEFAULT_PROFILE;
+    setUserRole(userRole as Profile);
+  }, []);
+
   return (
-    <UserContext.Provider value={{ isUserRole, setUserRole }}>
+    <UserContext.Provider
+      value={{
+        compareUserProfile,
+        changeUserProfile,
+        getUserById,
+        updateUser,
+        userRole,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

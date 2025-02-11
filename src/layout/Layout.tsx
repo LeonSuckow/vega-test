@@ -27,7 +27,7 @@ export const Layout = ({ children }: LaouyProps) => {
           <AppSidebar />
           <SidebarInset>
             <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
-              <div className="flex items-center gap-2 px-4">
+              <div className="flex items-center gap-2 px-4 ">
                 <SidebarTrigger className="-ml-1" />
                 <Separator orientation="vertical" className="mr-2 h-4" />
                 <BreadCrumb />
@@ -41,8 +41,9 @@ export const Layout = ({ children }: LaouyProps) => {
               toastOptions={{
                 classNames: {
                   error: "bg-red-400",
-                  success: "text-green-400",
-                  warning: "text-yellow-400",
+                  success: "bg-vega-green-800 text-white border-vega-green-800",
+                  warning:
+                    "bg-vega-yellow-800 text-white border-vega-yellow-800",
                   info: "bg-blue-400",
                 },
               }}

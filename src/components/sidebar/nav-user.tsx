@@ -16,6 +16,8 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+import { GLOBAL_TEXT } from "@/config/pt";
+import { Profile, PROFILE_TEXT } from "@/constants/role";
 import { useUserContext } from "@/hooks/use-user";
 
 export function NavUser({
@@ -28,7 +30,7 @@ export function NavUser({
   };
 }) {
   const { isMobile } = useSidebar();
-  const { setUserRole } = useUserContext();
+  const { changeUserProfile } = useUserContext();
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -55,20 +57,24 @@ export function NavUser({
             align="end"
             sideOffset={4}
           >
-            <DropdownMenuLabel>Change Perfil</DropdownMenuLabel>
+            <DropdownMenuLabel>
+              {GLOBAL_TEXT.SIDEBAR.NAV_USER.TITLE}
+            </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem onClick={() => setUserRole("Admin")}>
-                Admin
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setUserRole("Public")}>
-                Public
-              </DropdownMenuItem>
+              {Object.entries(PROFILE_TEXT).map(([role, name]) => (
+                <DropdownMenuItem
+                  key={role}
+                  onClick={() => changeUserProfile(role as Profile)}
+                >
+                  {name}
+                </DropdownMenuItem>
+              ))}
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               <LogOut />
-              Log out
+              {GLOBAL_TEXT.SIDEBAR.NAV_USER.LOGOUT}
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

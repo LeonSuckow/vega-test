@@ -1,7 +1,13 @@
-# Live coding teste Vega I.T.
+# Observações live coding teste Vega I.T.
 
 Vaga para Desenvolvedor Frontend Pleno na Vega I.T.
-Não consegui entregar no prazo, mas terminei posteriormente apenas para não deixar incompleto.
+Não passei no teste por estar incompleto e optei por deixar esse projeto como exemplo.
+
+# Alterações
+
+1.  Ao inves de ter dois botôes de nas ações da listagem de 'Visualizar' e 'Editar' os botões são controlados pelos perfis 'Admin' ou 'Public'
+2.  Alterei o objeto de paginação paginatedUsersMock, paginatedUsersMock2 e paginatedUsersMock3 para um objeto contendo todos os itens para simular a paginação.
+3.  Inclui um breadcrum com histórico de navegação dinamica
 
 # Tempo de live coding
 
@@ -10,6 +16,12 @@ Não consegui entregar no prazo, mas terminei posteriormente apenas para não de
 # Descrição do Desafio
 
 Você deverá criar um layout com base no ~~Figma link~~ para exibir dados paginados de uma lista de usuários com as seguintes funcionalidades:
+
+## Protótipo
+
+![ListScreen](https://github.com/LeonSuckow/vega-test/blob/master/src/assets/Listar-screen.png?raw=true)
+![EditScreen](https://github.com/LeonSuckow/vega-test/blob/master/src/assets/Editar.png?raw=true)
+![DetailsScreen](https://github.com/LeonSuckow/vega-test/blob/master/src/assets/Visualizar-screen.png?raw=true)
 
 1. **Fidelidade ao protótipo**
 2. **Paginação dos dados**
