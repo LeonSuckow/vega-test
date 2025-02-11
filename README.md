@@ -162,7 +162,7 @@ const paginatedUsersMockPage3 = {
 };
 ```
 
-## Como clonar o projeto e rodar
+# Rodar o projeto (padrão)
 
 1. **Clone o projeto com o comando**
 
@@ -187,3 +187,25 @@ npm install
 ```
 npm run dev
 ```
+
+# Rodar projeto com Docker
+
+1. **Clone o projeto com o comando**
+
+```
+git clone https://github.com/LeonSuckow/vega-test.git
+```
+
+2. **Entre na pasta clonada**
+
+```
+cd vega-test
+```
+
+3. **Rode o projeto**
+
+```
+docker-compose up dev
+```
+
+4. Se tudo der certo, o projeto estará rodando na url http://localhost:5173.
