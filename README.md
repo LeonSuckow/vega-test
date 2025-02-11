@@ -161,3 +161,29 @@ const paginatedUsersMockPage3 = {
   ],
 };
 ```
+
+## Como clonar o projeto e rodar
+
+1. **Clone o projeto com o comando**
+
+```
+git clone https://github.com/LeonSuckow/vega-test.git
+```
+
+2. **Entre na pasta clonada**
+
+```
+cd vega-test
+```
+
+3. **Instale as dependencias**
+
+```
+npm install
+```
+
+4. **Rode o projeto**
+
+```
+npm run dev
+```
