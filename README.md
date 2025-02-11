@@ -23,6 +23,8 @@ Você deverá criar um layout com base no ~~Figma link~~ para exibir dados pagin
 ![EditScreen](https://github.com/LeonSuckow/vega-test/blob/main/src/assets/Editar.png?raw=true)
 ![DetailsScreen](https://github.com/LeonSuckow/vega-test/blob/main/src/assets/Visualizar.png?raw=true)
 
+## Requisitos
+
 1. **Fidelidade ao protótipo**
 2. **Paginação dos dados**
 3. **Tela com informações detalhadas sobre o usuário**
