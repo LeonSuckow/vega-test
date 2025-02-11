@@ -19,9 +19,9 @@ Você deverá criar um layout com base no ~~Figma link~~ para exibir dados pagin
 
 ## Protótipo
 
-![ListScreen](https://github.com/LeonSuckow/vega-test/blob/main/src/assets/Listar-screen.png?raw=true)
+![ListScreen](https://github.com/LeonSuckow/vega-test/blob/main/src/assets/Listar.png?raw=true)
 ![EditScreen](https://github.com/LeonSuckow/vega-test/blob/main/src/assets/Editar.png?raw=true)
-![DetailsScreen](https://github.com/LeonSuckow/vega-test/blob/main/src/assets/Visualizar-screen.png?raw=true)
+![DetailsScreen](https://github.com/LeonSuckow/vega-test/blob/main/src/assets/Visualizar.png?raw=true)
 
 1. **Fidelidade ao protótipo**
 2. **Paginação dos dados**
