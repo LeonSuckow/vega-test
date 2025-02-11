@@ -8,6 +8,7 @@ Não passei no teste por estar incompleto e optei por deixar esse projeto como e
 1.  Ao inves de ter dois botôes de nas ações da listagem de 'Visualizar' e 'Editar' os botões são controlados pelos perfis 'Admin' ou 'Public'
 2.  Alterei o objeto de paginação paginatedUsersMock, paginatedUsersMock2 e paginatedUsersMock3 para um objeto contendo todos os itens para simular a paginação.
 3.  Inclui um breadcrum com histórico de navegação dinamica
+4.  Alteração da sidebar
 
 # Tempo de live coding
 
